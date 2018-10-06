@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<style>
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    width: 650px;
+    height: 200px;
+    border: 3px solid #73AD21;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+   angular.module('inputExample', [])
+     .controller('ExampleController', ['$scope', function($scope) {
+       $scope.user = {name: 'guest', last: 'visitor'};
+     }]);
+</script>
+<body  ng-app="inputExample">
+
+<div ng-controller="ExampleController">
+ 
+<p>Input something in the input box:</p>
+<p >Name : <input type="text" ng-model="user.name" placeholder="Enter name here"></p>
+<h1>Hello {{user.name}}</h1>
+
+
+<div class=fixed >
+<h4>{{user.name}}</h4>
+</div>
+</div>
+</body>
+</html>
