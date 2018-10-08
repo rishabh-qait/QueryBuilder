@@ -4,13 +4,22 @@
 div.fixed {
     position: fixed;
     bottom: 0;
-    width: 650px;
+    width: 1200px;
     height: 200px;
     border: 3px solid #73AD21;
+display:flex;
 }
 button.del{
 border:3px solid red;
 background:red;
+display:flex;
+height:20px;
+}
+button.edit{
+border:3px solid orange;
+background:orange;
+display:flex;
+height:20px;
 }
 button.save{
 border:3px solid green;
@@ -27,22 +36,28 @@ background:green;
      user.email="";
      user.mob="";
      }
+$scope.processForm = function() {
+    $scope.showForm = false;
+}
        
      }]);
 </script>
 <body  ng-app="inputExample">
 
 <div ng-controller="ExampleController">
- 
-<p>Input something in the input box:</p>
+<div ng-show="showForm">
+<p>Sample Registration Form:</p>
 <p >Name : <input type="text" ng-model="user.name" placeholder="Enter name here"></p>
 <p >E-mail : <input type="text" ng-model="user.email" placeholder="Enter email here"></p>
 <p >Mobile : <input type="text" ng-model="user.mob" placeholder="Enter mobile number here"></p>
-<button class='save' >Register </button>
-<button class='del' ng-click ="deleteData(user)">Delete</button>
+</div>
+<button class='save' ng-click="processForm()" >Submit </button>
+<button ng-click="showForm = !showForm">Add New</button>
 
 <div class=fixed >
 <h4>Hello {{user.name}} your username is {{user.email}} and mobile number is {{user.mob}}</h4>
+<button class='del' ng-click ="deleteData(user)">Delete</button>
+<button class='edit' ng-click ="">Edit</button>
 </div>
 </div>
 </body>
