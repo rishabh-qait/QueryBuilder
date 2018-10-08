@@ -8,12 +8,26 @@ div.fixed {
     height: 200px;
     border: 3px solid #73AD21;
 }
+button.del{
+border:3px solid red;
+background:red;
+}
+button.save{
+border:3px solid green;
+background:green;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
    angular.module('inputExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
        $scope.user = {name: 'guest', email: 'guest12@gmail.com' , mob:'9897811611'};
+         $scope.deleteData = function(user){
+     user.name="";
+     user.email="";
+     user.mob="";
+     }
+       
      }]);
 </script>
 <body  ng-app="inputExample">
@@ -24,6 +38,8 @@ div.fixed {
 <p >Name : <input type="text" ng-model="user.name" placeholder="Enter name here"></p>
 <p >E-mail : <input type="text" ng-model="user.email" placeholder="Enter email here"></p>
 <p >Mobile : <input type="text" ng-model="user.mob" placeholder="Enter mobile number here"></p>
+<button class='save' >Register </button>
+<button class='del' ng-click ="deleteData(user)">Delete</button>
 
 <div class=fixed >
 <h4>Hello {{user.name}} your username is {{user.email}} and mobile number is {{user.mob}}</h4>
