@@ -13,7 +13,7 @@ div.fixed {
 <script>
    angular.module('inputExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
-       $scope.user = {name: 'guest', last: 'visitor'};
+       $scope.user = {name: 'guest', email: 'guest12@gmail.com' , mob:'9897811611'};
      }]);
 </script>
 <body  ng-app="inputExample">
@@ -22,11 +22,11 @@ div.fixed {
  
 <p>Input something in the input box:</p>
 <p >Name : <input type="text" ng-model="user.name" placeholder="Enter name here"></p>
-<h1>Hello {{user.name}}</h1>
-
+<p >E-mail : <input type="text" ng-model="user.email" placeholder="Enter email here"></p>
+<p >Mobile : <input type="text" ng-model="user.mob" placeholder="Enter mobile number here"></p>
 
 <div class=fixed >
-<h4>{{user.name}}</h4>
+<h4>Hello {{user.name}} your username is {{user.email}} and mobile number is {{user.mob}}</h4>
 </div>
 </div>
 </body>
